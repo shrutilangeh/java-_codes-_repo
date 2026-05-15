@@ -1,15 +1,15 @@
-import java.util.*;
-public class Main
-{
-    public static List<Integer> removeElement(List<Integer> numbers, int target){
-        List<Integer> result = new ArrayList<>(numbers);
-        result.removeIf(n -> n == target);
-        return result;
-    }
+public class arrayCheck{
+    public static void main(String[] args){
+
+        try{
+            int[] list = {1,2,3,4,5};
+
+            System.out.println("accesing element at index 8: " + list[8]);
+        }
+        catch(IndexOutOfBoundsException e){
+            System.out.println(" acannot acces element");
+        }
     
-	public static void main(String[] args) {
-	    List<Integer> numbers = Arrays.asList(1,2,3,2,4,2,5);
-	    int target = 2;
-		System.out.println(removeElement(numbers, target));
-	}
+
+    }
 }
