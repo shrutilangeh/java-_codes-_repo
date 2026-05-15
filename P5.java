@@ -1,10 +1,14 @@
-import java.util.*;
-public class Main
-{
-	public static void main(String[] args) {
-		List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9);
-		
-		System.out.println(Collections.max(numbers) + " is the largest number");
-		System.out.println(Collections.min(numbers) + " is th smallest numbers");
-	}
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Filereaderexample{
+    public static void main(String[] args){
+        try(FileReader file = new FileReader("data.txt")){
+            System.out.println("file open succesfully");
+        }
+        catch(IOException e){
+            System.out.println("file not found..");
+            
+        }
+    }
 }
