@@ -1,25 +1,30 @@
-import java.util.Scanner;
-
-public class division{
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-
-        try{
-            System.out.println("enter num: ");
-            int num = sc.nextInt();
-            System.out.println("enter deno: ");
-            int deno = sc.nextInt();
-
-            int result = num / deno;
-            System.out.println("result" + result);
-        }
-        catch(ArithmeticException e){
-            System.out.println(" annot divide by zero");
-        }
-        
-        catch(Exception e){
-            System.out.println(" invalid input");
-        }
-
+class myThread extends Thread {
+  public void run() {
+    for (int i = 0; i < 5; i++){
+      System.out.println("Child thread : (" + Thread.currentThread().getName() + ")" + i);
+      try{
+        Thread.sleep(500);
+      } catch (InterruptedException e){
+          System.out.println(e);
+            }
     }
+  }
 }
+
+public class threadExample {
+  public static void main(String[] args){
+    myThread T1 = new myThread();
+    T1.start();
+    
+    for (int i = 0; i < 5; i++){
+      System.out.println("Main Thread:" + i);
+      try{
+        Thread.sleep(500);
+      } catch (InterruptedException e){
+          System.out.println(e);
+            }
+    }
+    System.out.println("main thread executed");
+  }
+}
+    
