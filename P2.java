@@ -1,15 +1,31 @@
-public class arrayCheck{
-    public static void main(String[] args){
-
-        try{
-            int[] list = {1,2,3,4,5};
-
-            System.out.println("accesing element at index 8: " + list[8]);
-        }
-        catch(IndexOutOfBoundsException e){
-            System.out.println(" acannot acces element");
-        }
-    
-
+class myRunnable implements Runnable  {
+  public void run() {
+    for (int i = 0; i < 5; i++){
+      System.out.println("Child thread : (" + Thread.currentThread().getName() + ")" + i);
+      try{
+        Thread.sleep(500);
+      } catch (InterruptedException e){
+          System.out.println(e);
+            }
     }
+  }
 }
+
+public class threadExample {
+  public static void main(String[] args){
+    myRunnable obj = new myRunnable();
+    Thread T1 = new Thread(obj);
+    T1.start();
+    
+    for (int i = 0; i < 5; i++){
+      System.out.println("Main Thread:" + i);
+      try{
+        Thread.sleep(500);
+      } catch (InterruptedException e){
+          System.out.println(e);
+            }
+    }
+    System.out.println("main thread executed");
+  }
+}
+    
