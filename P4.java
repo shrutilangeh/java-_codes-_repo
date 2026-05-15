@@ -1,32 +1,28 @@
-import java.util.Scanner;
-
-public class multipleCatchBlock{
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-
-        try{
-            System.out.println("enter num: ");
-            String num = sc.nextLine();
-            System.out.println("enter deno: ");
-            String deno = sc.nextLine();
-
-            int num1 = Integer.parseInt(num);
-            int deno1 = Integer.parseInt(deno);
-
-            int result = num1 / deno1;
-            System.out.println("result" + result);
-        }
-        catch(NumberFormatException){
-            System.out.println("enetr valid integer");
-            
-        }
-        catch(ArithmeticException e){
-            System.out.println(" annot divide by zero");
-        }
-        
-        catch(Exception e){
-            System.out.println(" invalid input");
-        }
-
+class myThread extends Thread {
+  public void run() {
+    for (int i = 0; i < 5; i++){
+      System.out.println("Child thread :" + i);
+      try{
+        Thread.sleep(500);
+      } catch (InterruptedException e){
+          System.out.println(e);
+            }
     }
+  }
 }
+
+public class threadExample {
+  public static void main(String[] args){
+    myThread T1 = new myThread();
+    T1.start();
+    
+    try{
+      T1.join();
+    } catch (InterruptedException e){
+        System.out.println(e);
+          }
+    
+    System.out.println("main thread resume execution...");
+  }
+}
+    
