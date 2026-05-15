@@ -1,16 +1,25 @@
-import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Main
-{
+public class division{
     public static void main(String[] args){
-	    ArrayList<String> names = new ArrayList<>();
-	    names.add("prnav");
-	    names.add("kesar");
-	    names.add("saksham");
-	    names.add("xvdw");
-	
-	    for (String name: names){
-	        System.out.println(name);
-	    }
+        Scanner sc = new Scanner(System.in);
+
+        try{
+            System.out.println("enter num: ");
+            int num = sc.nextInt();
+            System.out.println("enter deno: ");
+            int deno = sc.nextInt();
+
+            int result = num / deno;
+            System.out.println("result" + result);
+        }
+        catch(ArithmeticException e){
+            System.out.println(" annot divide by zero");
+        }
+        
+        catch(Exception e){
+            System.out.println(" invalid input");
+        }
+
     }
 }
