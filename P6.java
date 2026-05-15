@@ -1,9 +1,13 @@
-import java.util.*;
-public class Main
-{
-	public static void main(String[] args) {
-		List<String> names = Arrays.asList("a", "b", "c");
-		Collections.reverse(names);
-		System.out.println(names);
-	}
+public class finallyExample{
+    public static void main(String[] args){
+       try{
+            int number = 10/0
+            System.out.println("number: "+ number);
+        }catch(Exception e){
+            System.out.println(" error occured");
+        }finally{
+            System.out.println("finally block executed");
+        }
+        
+    }
 }
